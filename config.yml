@@ -1,2 +1,7 @@
 DefaultBalance: 100
 Players: 0
+
+
+#Shops command
+shops:
+  isEnabled: false

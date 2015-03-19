@@ -1,6 +1,7 @@
 package me.mrson.mceconplus;
 
 import me.mrson.mceconplus.API.Files.Config;
+import me.mrson.mceconplus.API.Files.Items;
 import me.mrson.mceconplus.API.Files.Players;
 import me.mrson.mceconplus.Commands.Balance;
 import me.mrson.mceconplus.Commands.Economy;
@@ -29,6 +30,9 @@ public class McEconPlus extends JavaPlugin{
 
         new Players(this);
         Players.createFiles();
+
+        new Items(this);
+        Items.createFiles();
 
         registerEvent(this, new PlayerJoinEvent());
 
