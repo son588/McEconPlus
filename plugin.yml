@@ -1,0 +1,50 @@
+name: McEconPlus
+main: me.mrson.mceconplus.McEconPlus
+version: 1.1
+
+commands:
+  balance:
+    description: Check balance.
+    permission: mcep.balance
+  bal:
+    description: Check balance.
+    permission: mcep.balance
+  money:
+    description: Check balance.
+    permission: mcep.balance
+  economy:
+    description: Economy commands;
+    permission: mcep.economy
+
+permissions:
+  mcep.*:
+    description: Access to all of the commands.
+    children:
+      mcep.balance: true
+      mcep.economy: true
+      mcep.economy.*: true
+      mcep.economy.balance: true
+      mcep.economy.setbalance: true
+      mcep.economy.givebalance: true
+  mcep.economy.*:
+    description: Access to all /economy
+    children:
+     mcep.economy.balance: true
+     mcep.economy.setbalance: true
+     mcep.economy.givebalance: true
+     mcep.economy: true
+  mcep.balance:
+    description: Access to /balance
+    default: true
+  mcep.economy:
+    description: Access to /economy
+    default: op
+  mcep.economy.balance:
+    description: View other players balance
+    default: op
+  mcep.economy.setbalance:
+    description: Set other players balance
+    default: op
+  mcep.economy.givebalance:
+    description: Give other players balance
+    default: op
