@@ -9,4 +9,4 @@ Need to add:
 
 Credit:
 
-Chasechocolate (https://github.com/chasechocolate) - Used his config system as a reference for mine.
+Chasechocolate (https://github.com/chasechocolate) - Used a similar config system that he used.
