@@ -13,8 +13,11 @@ commands:
     description: Check balance.
     permission: mcep.balance
   economy:
-    description: Economy commands;
+    description: Economy commands.
     permission: mcep.economy
+  pay:
+    description: Pay command.
+    permission: mcep.pay
 
 permissions:
   mcep.*:
@@ -26,6 +29,7 @@ permissions:
       mcep.economy.balance: true
       mcep.economy.setbalance: true
       mcep.economy.givebalance: true
+      mcep.pay: true
   mcep.economy.*:
     description: Access to all /economy
     children:
@@ -48,3 +52,6 @@ permissions:
   mcep.economy.givebalance:
     description: Give other players balance
     default: op
+  mcep.pay:
+    description: Pay another player
+    default: true

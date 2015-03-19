@@ -24,28 +24,32 @@ public class Balance implements CommandExecutor {
         Player player = (Player) sender;
 
         if(cmd.getName().equalsIgnoreCase("balance") || cmd.getName().equalsIgnoreCase("bal") || cmd.getName().equalsIgnoreCase("money") && sender.hasPermission("mcep.balance")){
-            if(args.length >= 1){
-                if(args.length == 1){
-                    if(sender.hasPermission("mcep.economy.balance")){
-                        double balance = GetBalance.getBalance(args[0]);
-                        if(!(Double.isNaN(balance))){
-                            sender.sendMessage(ChatColor.GREEN + "'" + args[0] + "' balance is " + balance);
-                        }else if(Double.isNaN(balance)){
-                            sender.sendMessage(ChatColor.RED + "Player '" + args[0] + "' does not exist!");
+            if(sender instanceof Player){
+                if(args.length >= 1){
+                    if(args.length == 1){
+                        if(sender.hasPermission("mcep.economy.balance")){
+                            double balance = GetBalance.getBalance(args[0]);
+                            if(!(Double.isNaN(balance))){
+                                sender.sendMessage(ChatColor.GREEN + "'" + args[0] + "' balance is " + balance);
+                            }else if(Double.isNaN(balance)){
+                                sender.sendMessage(ChatColor.RED + "Player '" + args[0] + "' does not exist!");
+                            }
+                        }else{
+                            sender.sendMessage(ChatColor.RED + "You do not have permission to this command!");
                         }
                     }else{
-                        sender.sendMessage(ChatColor.RED + "You do not have permission to this command!");
+                        sender.sendMessage(ChatColor.RED + "Invalid argument. Usage: /balance (Username)");
                     }
                 }else{
-                    sender.sendMessage(ChatColor.RED + "Invalid argument. Usage: /balance (Username)");
+                    double balance = GetBalance.getBalance(sender.getName().toString());
+                    if(Double.isNaN(balance)){
+                        sender.sendMessage(ChatColor.RED + "Error. Balance in invalid. Contact the owner if this doesn't seem right.");
+                    }else{
+                        sender.sendMessage(ChatColor.GREEN + "Your balance is " + balance);
+                    }
                 }
             }else{
-                double balance = GetBalance.getBalance(sender.getName().toString());
-                if(Double.isNaN(balance)){
-                    sender.sendMessage(ChatColor.RED + "Error. Balance in invalid. Contact the owner if this doesn't seem right.");
-                }else{
-                    sender.sendMessage(ChatColor.GREEN + "Your balance is " + balance);
-                }
+                sender.sendMessage(ChatColor.RED + "You have to be a player to execute this command!");
             }
         }
         return false;
